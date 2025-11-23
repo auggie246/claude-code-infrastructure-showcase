@@ -25,11 +25,11 @@
                 ]
             }
         },
-        "backend-dev-guidelines": {
+        "python-backend-guidelines": {
             "type": "domain",
             "enforcement": "suggest",
             "priority": "high",
-            "description": "Backend development patterns for Node.js/Express/TypeScript",
+            "description": "Backend development patterns for Python 3.13/FastAPI with uv",
             "promptTriggers": {
                 "keywords": [
                     "backend",
@@ -40,47 +40,56 @@
                     "repository",
                     "route",
                     "routing",
-                    "express",
+                    "fastapi",
                     "API",
                     "endpoint",
                     "middleware",
                     "validation",
-                    "Zod",
-                    "Prisma",
+                    "pydantic",
+                    "sqlalchemy",
                     "database access",
                     "BaseController",
                     "dependency injection",
-                    "unifiedConfig",
-                    "configuration"
+                    "pydantic-settings",
+                    "configuration",
+                    "uv",
+                    "pytest",
+                    "async"
                 ],
                 "intentPatterns": [
                     "(create|add|implement|build).*?(route|endpoint|API|controller|service|repository)",
                     "(fix|handle|debug).*?(error|exception|backend)",
                     "(add|implement).*?(middleware|validation|error.*?handling)",
                     "(organize|structure|refactor).*?(backend|service|API)",
-                    "(how to|best practice).*?(backend|route|controller|service)"
+                    "(how to|best practice).*?(backend|route|controller|service|fastapi|python)"
                 ]
             },
             "fileTriggers": {
                 "pathPatterns": [
-                    "blog-api/src/**/*.ts",
-                    "auth-service/src/**/*.ts",
-                    "notifications-service/src/**/*.ts",
-                    "backend/**/*.ts",
-                    "api/**/*.ts",
-                    "server/**/*.ts",
-                    "services/**/*.ts"
+                    "**/src/**/*.py",
+                    "backend/**/*.py",
+                    "api/**/*.py",
+                    "server/**/*.py",
+                    "services/**/*.py",
+                    "**/routers/**/*.py",
+                    "**/controllers/**/*.py",
+                    "**/repositories/**/*.py"
                 ],
                 "pathExclusions": [
-                    "**/*.test.ts",
-                    "**/*.spec.ts"
+                    "**/test_*.py",
+                    "**/*_test.py",
+                    "**/conftest.py",
+                    "**/tests/**/*.py"
                 ],
                 "contentPatterns": [
-                    "router\\.",
-                    "app\\.(get|post|put|delete|patch)",
-                    "export.*Controller",
-                    "export.*Service",
-                    "prisma\\."
+                    "from fastapi",
+                    "APIRouter",
+                    "@router\\.(get|post|put|delete|patch)",
+                    "class.*Controller",
+                    "class.*Service",
+                    "class.*Repository",
+                    "BaseModel",
+                    "AsyncSession"
                 ]
             }
         },
